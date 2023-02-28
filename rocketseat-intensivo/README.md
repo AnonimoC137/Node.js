@@ -30,10 +30,26 @@ const meuArquivo = require('./meu-arquivo.js');
 
 Vai fazer a atualização automatica do servidor criado para que nao precise fazer isso a todo momento do desenvolvimento.
 
-* colocar npm install nodemon --save-dev 
+@exemplo
+```bash
+npm install nodemon --save-dev 
+```
 
  para ser colocado somente no ambiente de desenvolvimento, nao estando disponivel em ambiente de produção na qual o app, ou sitema ja esta online e com pessoas utilizando, para que nao fique atualizando sozinho.
- 
+
+*Para executalo lá no package.json em scritps vamos colocar como 
+
+@exemplo
+ ```bash
+ "start:dev": " nodemon index.js "
+```
+* E no terminal vamos colocar 
+
+@exemplo
+```bash
+npm run start:dev
+```
+
 
 
 
