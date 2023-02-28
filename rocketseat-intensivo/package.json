@@ -1,0 +1,20 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnonimoC137/Node.js.git"
+  },
+  "author": "alexandre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnonimoC137/Node.js/issues"
+  },
+  "homepage": "https://github.com/AnonimoC137/Node.js#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
