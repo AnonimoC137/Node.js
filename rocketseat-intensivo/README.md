@@ -70,5 +70,27 @@ console.log(path.parse(__filename));
 console.log(path.join(__dirname, "teste", "teste.html"));
  ```
 
+ # FS e algumas funcionalidades #
+
+  * Podemos puxar algumas informações interessantes em conjunto com o path.
+  * Se tentar criar uma pasta que já existe vai dar erro.
+
+  @exemplo
+  ```bash
+  const fs = require('fs');
+  const path = require('path');
+
+  // Criar uma pasta
+  fs.mkdir(path.join(__dirname, '/teste'), (error) => {
+    if(error) {
+      return console.log('Erro: ', error);
+    }
+
+    console.log("pasta criada com sucesso")
+  })
+  ```
+
+
+
 
 
