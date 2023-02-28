@@ -43,7 +43,7 @@ npm install nodemon --save-dev
  ```bash
  "start:dev": " nodemon index.js "
 ```
-* E no terminal vamos colocar 
+* E no terminal vamos colocar para startar o nodemon
 
 @exemplo
 ```bash
