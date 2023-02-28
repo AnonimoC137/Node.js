@@ -49,7 +49,26 @@ npm install nodemon --save-dev
 ```bash
 npm run start:dev
 ```
+# Path algumas funcionalidades #
 
+ Podemos puxar algumas informações interessantes
+
+ @exemplo
+ ```bash
+ const path = require('path');
+
+// apenas o nome do arquivo atual
+console.log(path.basename(__filename));
+
+// Nome do diretorio atual
+console.log(path.dirname(__filename));
+
+// Cria objeto Path
+console.log(path.parse(__filename));
+
+//Juntar caminhos de arquivo, cada parametro colocado add um caminho a mais 
+console.log(path.join(__dirname, "teste", "teste.html"));
+ ```
 
 
 
