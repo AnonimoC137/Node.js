@@ -90,6 +90,54 @@ console.log(path.join(__dirname, "teste", "teste.html"));
   })
   ```
 
+  # Criação de pasta / arquivos #
+
+  É possivel criar uma pasta usando o fs e path em conjunto com o caminho mkdir, e usando um join no path, passa o __dirname para achar o repositorio e "/teste" para ser o nome da pasta criada, em seguida um callback para caso de erro ele apontar isso.
+
+  @exemplo
+  ```bash
+  fs.mkdir(path.join(__dirname, '/teste'), (error) => {
+    if(error) {
+      return console.log('Erro: ', error);
+    }
+
+    console.log("pasta criada com sucesso")
+  })
+  ```
+
+  Já para criar um arquivo o processo vai ser similar, usando o fs e o path em conjunto tbm, mas dessa vez com o caminho writeFile, colocando __dirname, "/teste" para achar o nome da pagina que o arquivo vai dentro e "teste.txt" vai ser o nome do arquivo e o formato.
+
+  * Observação importante, esse arquivo aceita varios formatos e o proximo parametro vai ser o que ira dentro do arquivo no caso 'hello world' e mais uma vez o callback de erro
+
+  @exemplo
+  ```bash
+  fs.writeFile(path.join(__dirname, "/teste", "test.txt"),
+ 'hello word', (error) => {
+      if(error) {
+        return console.log("Erro: ", error);
+      }
+      console.log('arquivo criado com sucesso')
+  }
+);
+```
+
+* Ainda nesse conceito tem como adicionar mais conteudo no arquivo criado usando o fs.appendFile
+
+@exemplo
+```
+fs.appendFile(
+  path.join(__dirname, "/teste", "test.txt"),
+ 'Olá mundo', (error) => {
+      if(error) {
+        return console.log("Erro: ", error);
+      }
+      console.log('arquivo criado com sucesso')
+  }
+);
+
+```
+
+
 
 
 
