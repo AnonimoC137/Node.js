@@ -125,7 +125,7 @@ Já para criar um arquivo o processo vai ser similar, usando o fs e o path em co
 ```
 ### adicionar com appendFile ###
 
-*Ainda nesse conceito tem como adicionar mais conteudo no arquivo criado usando o fs.appendFile
+* Ainda nesse conceito tem como adicionar mais conteudo no arquivo criado usando o fs.appendFile
 
 @exemplo
 ```bash
@@ -141,7 +141,7 @@ fs.appendFile(
 ```
 ### ler arquivo readFile ###
 
-* para ler o o arquivo precisamos colocar fs.readFile, passando aqueles mesmos parametros vistos logo acima, só que o quanto parametro é o 'utf8' por conta do portugues, e no callbak vai o data que sao os dados do arquivo para usar-mos para puxar eles no console.log no final
+* Para ler o o arquivo precisamos colocar fs.readFile, passando aqueles mesmos parametros vistos logo acima, só que o quanto parametro é o 'utf8' por conta do portugues, e no callbak vai o data que sao os dados do arquivo para usar-mos para puxar eles no console.log no final
 
 @exemplo
 ```
