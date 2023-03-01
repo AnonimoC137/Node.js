@@ -4,4 +4,6 @@ const person = new Person('alexandre')
 
 console.log(person.sayMyName());
 
-require("./modules/fs");
+// require("./modules/fs");
+
+require('./modules/http');

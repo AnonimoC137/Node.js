@@ -188,6 +188,26 @@ fs.writeFile(
   }
 );
 ```
+# Criando um pequeno servidor #
+
+Depois de fazer a require do http e apomtar a porta que no caso é a 8080, cria se uma const para o server com dois parametros o de requisição e o de resposta, dentro do if vai o whiteHead com o sinal 200 de positivo digamos assim, com o content-type mostrando que é um conteudo texto em html.
+
+O res.end vai ser o que vai enviar o conteudo de resposta, por fim criamos um caminho com server.listen, mostranso a porta e um console.log confirmando se deu tudo certo
+
+@exemplo
+```bash
+const http = require('http');
+const port = 8080;
+
+const server = http.createServer((req, res) => {
+    if(req.url === '/home') {
+        res.whiteHead(200, {'content-type': 'text/html'});
+        res.end('<h1>Home page</h1>')
+    }
+});
+
+server.listen(port, () => console.log(`rodando na porta ${port}`))
+```
 
 
 

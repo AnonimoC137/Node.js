@@ -33,7 +33,7 @@ fs.writeFile(
       );
 
       fs.readFile(
-        path.join(__dirname, '/teste', 'teste.txt'),
+        path.join(__dirname, '/teste', 'test.txt'),
          'utf8', (error, data) => {
           if(error) {
             return console.log("Erro: ", error);
