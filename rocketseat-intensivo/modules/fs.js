@@ -15,21 +15,34 @@ const path = require('path');
 
 // Criar arquivo
 fs.writeFile(
-  path.join(__dirname, "/teste", "test.txt"),
+  path.join(__dirname, '/teste', 'test.txt'),
  'hello word', (error) => {
       if(error) {
         return console.log("Erro: ", error);
       }
       console.log('arquivo criado com sucesso')
+
+      fs.appendFile(
+        path.join(__dirname, '/teste', 'test.txt'),
+       'Olá mundo', (error) => {
+            if(error) {
+              return console.log("Erro: ", error);
+            }
+            console.log('arquivo criado com sucesso')
+        }
+      );
+
+      fs.readFile(
+        path.join(__dirname, '/teste', 'teste.txt'),
+         'utf8', (error, data) => {
+          if(error) {
+            return console.log("Erro: ", error);
+          }
+          console.log(data)
+      })
   }
 );
 
-fs.appendFile(
-  path.join(__dirname, "/teste", "test.txt"),
- 'Olá mundo', (error) => {
-      if(error) {
-        return console.log("Erro: ", error);
-      }
-      console.log('arquivo criado com sucesso')
-  }
-);
+
+
+

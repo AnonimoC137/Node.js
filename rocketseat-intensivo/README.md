@@ -90,7 +90,7 @@ console.log(path.join(__dirname, "teste", "teste.html"));
   })
   ```
 
-  # Criação de pasta / arquivos #
+  # Criação de pasta/arquivos/adicionar/ler arquivo #
 
   É possivel criar uma pasta usando o fs e path em conjunto com o caminho mkdir, e usando um join no path, passa o __dirname para achar o repositorio e "/teste" para ser o nome da pasta criada, em seguida um callback para caso de erro ele apontar isso.
 
@@ -136,6 +136,54 @@ fs.appendFile(
 );
 
 ```
+
+* para ler o o arquivo precisamos colocar fs.readFile, passando aqueles mesmos parametros vistos logo acima, só que o quanto parametro é o 'utf8' por conta do portugues, e no callbak vai o data que sao os dados do arquivo para usar-mos para puxar eles no console.log no final
+
+@exemplo
+```
+fs.readFile(
+        path.join(__dirname, '/teste', 'teste.txt'),
+         'utf8', (error, data) => {
+          if(error) {
+            return console.log("Erro: ", error);
+          }
+          console.log(data)
+      })
+```
+* Observação  IMPORTANTE, o metodo de adicionar mais coisas dentro do arquivo e o metodo de ler precisam estar dentro do fs.writeFile que cria o arquivo pois como o Node é assincrono se não estiver dentro dele o Node vai tentar ler o arquivo antes mesmo do conteudo extra ser adicionado na pagina/arquivo.
+
+@exemplo
+```
+fs.writeFile(
+  path.join(__dirname, '/teste', 'test.txt'),
+ 'hello word', (error) => {
+      if(error) {
+        return console.log("Erro: ", error);
+      }
+      console.log('arquivo criado com sucesso')
+
+      fs.appendFile(
+        path.join(__dirname, '/teste', 'test.txt'),
+       'Olá mundo', (error) => {
+            if(error) {
+              return console.log("Erro: ", error);
+            }
+            console.log('arquivo criado com sucesso')
+        }
+      );
+
+      fs.readFile(
+        path.join(__dirname, '/teste', 'teste.txt'),
+         'utf8', (error, data) => {
+          if(error) {
+            return console.log("Erro: ", error);
+          }
+          console.log(data)
+      })
+  }
+);
+```
+
 
 
 
