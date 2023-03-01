@@ -107,6 +107,8 @@ console.log(path.join(__dirname, "teste", "teste.html"));
 
   Já para criar um arquivo o processo vai ser similar, usando o fs e o path em conjunto tbm, mas dessa vez com o caminho writeFile, colocando __dirname, "/teste" para achar o nome da pagina que o arquivo vai dentro e "teste.txt" vai ser o nome do arquivo e o formato.
 
+  ### formatos ###
+
   * Observação importante, esse arquivo aceita varios formatos e o proximo parametro vai ser o que ira dentro do arquivo no caso 'hello world' e mais uma vez o callback de erro
 
   @exemplo
