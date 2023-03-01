@@ -68,51 +68,52 @@ console.log(path.parse(__filename));
 
 // Juntar caminhos de arquivo, cada parametro colocado add um caminho a mais 
 console.log(path.join(__dirname, "teste", "teste.html"));
- ```
+```
 
- # FS e algumas funcionalidades #
+# FS e algumas funcionalidades #
 
-  * Podemos puxar algumas informações interessantes em conjunto com o path.
-  * Se tentar criar uma pasta que já existe vai dar erro.
+* Podemos puxar algumas informações interessantes em conjunto com o path.
+* Se tentar criar uma pasta que já existe vai dar erro.
 
-  @exemplo
-  ```bash
-  const fs = require('fs');
-  const path = require('path');
+@exemplo
+```bash
+const fs = require('fs');
+const path = require('path');
 
-  // Criar uma pasta
-  fs.mkdir(path.join(__dirname, '/teste'), (error) => {
+// Criar uma pasta
+fs.mkdir(path.join(__dirname, '/teste'), (error) => {
     if(error) {
       return console.log('Erro: ', error);
     }
 
     console.log("pasta criada com sucesso")
   })
-  ```
+```
 
-  # Criação de pasta/arquivos/adicionar/ler arquivo #
+# Criação de pasta/arquivos/adicionar/ler arquivo #
 
-  É possivel criar uma pasta usando o fs e path em conjunto com o caminho mkdir, e usando um join no path, passa o __dirname para achar o repositorio e "/teste" para ser o nome da pasta criada, em seguida um callback para caso de erro ele apontar isso.
+É possivel criar uma pasta usando o fs e path em conjunto com o caminho mkdir, e usando um join no path, passa o __dirname para achar o repositorio e "/teste" para ser o nome da pasta criada, em seguida um callback para caso de erro ele apontar isso.
 
-  @exemplo
-  ```bash
+@exemplo
+```bash
   fs.mkdir(path.join(__dirname, '/teste'), (error) => {
     if(error) {
       return console.log('Erro: ', error);
     }
 
     console.log("pasta criada com sucesso")
-  })
-  ```
+})
+```
+### writeFile ###
 
-  Já para criar um arquivo o processo vai ser similar, usando o fs e o path em conjunto tbm, mas dessa vez com o caminho writeFile, colocando __dirname, "/teste" para achar o nome da pagina que o arquivo vai dentro e "teste.txt" vai ser o nome do arquivo e o formato.
+Já para criar um arquivo o processo vai ser similar, usando o fs e o path em conjunto tbm, mas dessa vez com o caminho writeFile, colocando __dirname, "/teste" para achar o nome da pagina que o arquivo vai dentro e "teste.txt" vai ser o nome do arquivo e o formato.
 
-  ### formatos ###
+### formatos ###  
 
-  * Observação importante, esse arquivo aceita varios formatos e o proximo parametro vai ser o que ira dentro do arquivo no caso 'hello world' e mais uma vez o callback de erro
+* Observação importante, esse arquivo aceita varios formatos e o proximo parametro vai ser o que ira dentro do arquivo no caso 'hello world' e mais uma vez o callback de erro
 
-  @exemplo
-  ```bash
+@exemplo
+```bash
   fs.writeFile(path.join(__dirname, "/teste", "test.txt"),
  'hello word', (error) => {
       if(error) {
@@ -122,11 +123,12 @@ console.log(path.join(__dirname, "teste", "teste.html"));
   }
 );
 ```
+### adicionar com appendFile ###
 
-* Ainda nesse conceito tem como adicionar mais conteudo no arquivo criado usando o fs.appendFile
+*Ainda nesse conceito tem como adicionar mais conteudo no arquivo criado usando o fs.appendFile
 
 @exemplo
-```
+```bash
 fs.appendFile(
   path.join(__dirname, "/teste", "test.txt"),
  'Olá mundo', (error) => {
@@ -136,8 +138,8 @@ fs.appendFile(
       console.log('arquivo criado com sucesso')
   }
 );
-
 ```
+### ler arquivo readFile ###
 
 * para ler o o arquivo precisamos colocar fs.readFile, passando aqueles mesmos parametros vistos logo acima, só que o quanto parametro é o 'utf8' por conta do portugues, e no callbak vai o data que sao os dados do arquivo para usar-mos para puxar eles no console.log no final
 
@@ -152,6 +154,7 @@ fs.readFile(
           console.log(data)
       })
 ```
+### atenção ###
 * Observação  IMPORTANTE, o metodo de adicionar mais coisas dentro do arquivo e o metodo de ler precisam estar dentro do fs.writeFile que cria o arquivo pois como o Node é assincrono se não estiver dentro dele o Node vai tentar ler o arquivo antes mesmo do conteudo extra ser adicionado na pagina/arquivo.
 
 @exemplo
