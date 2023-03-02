@@ -8,3 +8,7 @@ const person = new Person('alexandre')
 
 // require('./modules/http');
 require('./modules/express')
+
+const dotenv = require('dotenv')
+
+dotenv.config();

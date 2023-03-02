@@ -289,6 +289,42 @@ primeiro passo foi se registar no mongoDB e criar a base de dados, agora vamos n
 ```bash
 npm install mongoose
 ```
+# pasta .env  ATENÇÃO #
+
+Essa pasta vai ser criada para podemos gerar variaveis com nossas senhas sensiveis, e vamos colocar no gitignore para ela nçao subir para o github .
+
+* vou mostrar em um exemplo como deve ficar as senhas dentro desse arquivo 
+
+@exemplo
+```bash
+MONGODB_USERNAME=meunick
+MONGODB_PASSWORD=minhasenha
+```
+### ditenv ###
+
+* Para podemos usar essa funcionalidade temos que instalar o dotenv
+
+@exemplo
+```bash
+npm install dotenv
+```
+* Para finalizar a configuração no nosso arquivo index.js vamos colocar as seguintes configurações.
+
+@exemplo
+```bash
+const dotenv = require('dotenv')
+
+dotenv.config();
+```
+
+# Pasta SRC/DATABASE # 
+
+foi criada a pasta src com a pasta database dentro e dentro do data o arquivo connect.js , vai ser nesta pagina que vai se conectar com o mongoose para ter acesso ao mongoDB.
+
+@exemplo
+```bash
+
+```
 
 
 
