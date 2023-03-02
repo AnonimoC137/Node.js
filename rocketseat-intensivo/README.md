@@ -188,7 +188,7 @@ fs.writeFile(
   }
 );
 ```
-# Criando um pequeno servidor #
+# Criando um pequeno servidor com http #
 
 Depois de fazer a require do http e apomtar a porta que no caso é a 8080, cria se uma const para o server com dois parametros o de requisição e o de resposta, dentro do if vai o writeHead com o sinal 200 de positivo digamos assim, com o content-type mostrando que é um conteudo texto em html.
 
@@ -229,6 +229,54 @@ if(req.url === '/users') {
         res.writeHead(200, {'Content-Type': 'application/json'});
         res.end(JSON.stringify(users))
     }
+```
+
+# Instalando o express #
+
+somente o exemplo da linha de comando para instalar o express
+
+@exemplo
+```bash
+npm install express
+```
+
+# Usando o express no servidor vs Http #
+
+Como vimos no exemplo anterior de como criar um servidor em http, agora vamos ver um exemplo de como fica ele usando o express
+
+* vale lembrar que o express é um framework do node.js
+
+@exemplo
+```bash
+const express = require('express');
+
+const app = express();
+
+
+
+app.get('/home', (req, res) =>{
+        res.contentType('application/html');
+        res.status(200).send('eu sou programador')
+})
+
+app.get('/users', (req, res) => {
+    const users = [
+        {
+            name: 'alexandre',
+            email: 'alexandrecoimbra44@gmail.com'
+        },
+        {
+            name: 'Alessandra',
+            email: 'alegremistinha19@gmail.com'
+        },
+    ]
+
+    res.status(200).json(users);
+})
+
+const port = 8080
+
+app.listen(port, () => console.log(`rodando na porta ${port}`))
 ```
 
 
