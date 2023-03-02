@@ -308,13 +308,21 @@ MONGODB_PASSWORD=minhasenha
 ```bash
 npm install dotenv
 ```
-* Para finalizar a configuração no nosso arquivo index.js vamos colocar as seguintes configurações.
+* Para finalizar a configuração no nosso arquivo index.js e no connect.js vamos colocar as seguintes configurações.
 
-@exemplo
+@exemplo INDEX.JS
 ```bash
 const dotenv = require('dotenv')
 
 dotenv.config();
+```
+### Colocando a senha ###
+
+* Aqui vamos colocar uma templete string e usar esse metodo para colocar a senha acessando aquela variavel que esta la no arquivo .env, é a mesma coisa para USERNAME.
+
+@exemplo CONNECT.JS
+```bash
+${process.env.MONGODB_PASSWORD}
 ```
 
 # Pasta SRC/DATABASE # 
