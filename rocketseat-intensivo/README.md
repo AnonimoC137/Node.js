@@ -190,7 +190,7 @@ fs.writeFile(
 ```
 # Criando um pequeno servidor #
 
-Depois de fazer a require do http e apomtar a porta que no caso é a 8080, cria se uma const para o server com dois parametros o de requisição e o de resposta, dentro do if vai o whiteHead com o sinal 200 de positivo digamos assim, com o content-type mostrando que é um conteudo texto em html.
+Depois de fazer a require do http e apomtar a porta que no caso é a 8080, cria se uma const para o server com dois parametros o de requisição e o de resposta, dentro do if vai o writeHead com o sinal 200 de positivo digamos assim, com o content-type mostrando que é um conteudo texto em html.
 
 O res.end vai ser o que vai enviar o conteudo de resposta, por fim criamos um caminho com server.listen, mostranso a porta e um console.log confirmando se deu tudo certo
 
@@ -207,6 +207,28 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, () => console.log(`rodando na porta ${port}`))
+```
+
+* Outro exemplo so que dessa vez usando uma array contendo uma lista com nome e email, e sendo transformada em json como resposta.
+
+* Prestar atenção principalmente na ultima parte, onde o res.end transforma a lista em JSON.
+
+@exemplo
+```bash
+if(req.url === '/users') {
+        const users = [
+            {
+                name: 'alexandre',
+                email: 'alexandrecoimbra44@gmail.com'
+            },
+            {
+                name: 'Alessandra',
+                email: 'alegremistinha19@gmail.com'
+            },
+        ]
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        res.end(JSON.stringify(users))
+    }
 ```
 
 
