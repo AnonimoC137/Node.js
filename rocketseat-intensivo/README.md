@@ -300,7 +300,7 @@ Essa pasta vai ser criada para podemos gerar variaveis com nossas senhas sensive
 MONGODB_USERNAME=meunick
 MONGODB_PASSWORD=minhasenha
 ```
-### ditenv ###
+### dotenv ###
 
 * Para podemos usar essa funcionalidade temos que instalar o dotenv
 
