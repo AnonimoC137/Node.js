@@ -279,6 +279,19 @@ const port = 8080
 app.listen(port, () => console.log(`rodando na porta ${port}`))
 ```
 
+# MongoDB para usar com o node #
+
+primeiro passo foi se registar no mongoDB e criar a base de dados, agora vamos nos conectar ao mongoDB usando o Node no vscode.
+
+* precisamos instalar uma dependencia que é o mongoose
+
+@exemplo
+```bash
+npm install mongoose
+```
+
+
+
 
 
 
