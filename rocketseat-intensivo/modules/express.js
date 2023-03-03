@@ -17,7 +17,7 @@ app.get('/users', async (req, res) =>{
        }
 })
 
-app.get('/users')
+
 
 app.post('/users', async (req, res) => {
     try {
