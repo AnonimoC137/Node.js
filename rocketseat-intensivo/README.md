@@ -345,14 +345,85 @@ const connectToDatabase = async () => {
 module.exports = connectToDatabase
 ```
 
-# Pasta SRC/DATABASE # 
+# Pasta SRC/DATABASE/connect # 
 
 foi criada a pasta src com a pasta database dentro e dentro do data o arquivo connect.js , vai ser nesta pagina que vai se conectar com o mongoose para ter acesso ao mongoDB.
 
+* Apos a pagina connect estar totalmente configurada na const connectToDatabase, vamos configurar ela no arquivo principal que é o index.js, lembrando que já vai conter as configurações do dotenv que é para as senhas nao aparecerem no github.
+
 @exemplo
 ```bash
+const dotenv = require('dotenv')
+const connectToDatabase = require('./src/database/connect')
 
+dotenv.config();
+//precisa ser startado depois do dotenv.config
+connectToDatabase();
 ```
+
+# Pasta models #
+
+* Nessa pasta vai conter um arquivo chamado user.model
+
+No arquivo em questao vamos importar o mongoose e criar um modelo de informações que desejamos receber do usuario.
+
+* Ele não explica com clareza todos os detalhes importante de por que esse arquivo foi criado desse padrao.
+
+@exemplo
+```bash
+const mongoose = require('mongoose');
+
+const userSchema = new mongoose.Schema({
+    firstName: {
+        type: String,
+        require: true,
+    },
+    lastName: {
+        type: String,
+        require: true,
+    },
+    email: {
+        type: String,
+        require: true,
+    },
+    password: {
+        type: String,
+        require: true,
+        minLength: 7,
+    },
+});
+
+const UserModel = mongoose.model('user', userSchema);
+
+module.exports = UserModel;
+```
+
+### na pasta express ###
+
+Foi aproveitado o modelo já em uso na pasta express as modificações são as seguintes.
+
+* Agora em vez de ser um app.get é um app.post, usando um try e catch para tornar a função assincrona, lembre de mandar o status como 201, pelo visto isso é importante. E transformando em json o user.
+
+* Ultima parte do exemplo vai na parte superior do arquivo para mostrar ao express que esta lidando com formato json.
+
+@exemplo
+```bash
+app.post('/users', async (req, res) => {
+    try {
+        const user = await UserModel.create(req.body);
+
+        res.status(201).json(user);
+    } catch {
+        res.status(500).send(error.message)
+    }
+    
+})
+
+// parte superior do arquivo vai isso
+
+app.use(express.json());
+```
+
 
 
 
