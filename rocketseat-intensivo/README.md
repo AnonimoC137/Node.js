@@ -369,6 +369,8 @@ No arquivo em questao vamos importar o mongoose e criar um modelo de informaçõ
 
 * Ele não explica com clareza todos os detalhes importante de por que esse arquivo foi criado desse padrao.
 
+* require: true, significa que é obrigatorio ser nesse modelo.
+
 @exemplo
 ```bash
 const mongoose = require('mongoose');
@@ -423,6 +425,12 @@ app.post('/users', async (req, res) => {
 
 app.use(express.json());
 ```
+
+# baixando o POSTman para teste.. #
+
+O que é o POSTMAN? O Postman é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs. Isso é feito, permitindo aos usuários criar e salvar solicitações HTTP e HTTPs simples e complexas, bem como ler suas respostas.
+
+
 
 
 
