@@ -494,7 +494,22 @@ app.patch('/users/:id', async (req, res) => {
 
 agora que vimos como criar, atualizar, puxar usuarios, vamos ver como deletar um.
 
+* nesse metodo de delete o que muda em relação aos demais é o caminho criado para a const user (findByIdAndRemove) de resto continuara tudo quase que igual aos demais.
 
+@exemplo
+```bash
+app.delete('/users/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const user = await UserModel.findByIdAndRemove(id);
+
+        return res.status(200).json(user);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+    
+});
+```
 
 # baixando o POSTman para teste.. #
 
