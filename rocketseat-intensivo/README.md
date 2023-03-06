@@ -582,6 +582,23 @@ Passo a passo de como fazer cada etapa no POSTman para testes de requisição.
 
 * No body do arquivo vamos marcar a opção NONE, pois não sera preciso fazer nada no corpo da requisição.
 
+* O retorno da requisição vai ser o usuario deletado do nosso banco de dados.
+
+* Caso tente deletar o mesmo usuario vai dar como resultado NULL pois ele não vai existir mais.
+
+@exemplo
+```bash
+{
+    "_id": "64064c07878ecb2d3245aada",
+    "firstName": "xandy",
+    "lastName": "coimbra",
+    "email": "x.andi.3@hotmail.com",
+    "password": "12345678",
+    "__v": 0
+}
+```
+
+
 
 
 
