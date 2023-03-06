@@ -474,14 +474,17 @@ app.get('/users/:id', async (req, res) =>{
 
 * Já o PUT, serve para quando queremos alterar quase ou por completo os dados.
 
-Vamos aos detalhes novos, a const de user tem como caminho agora o (findByIdAndUpdate) e os dois parametros a serem passados são o id e o req.body pois é no corpo da requisição que vamos enviar as alterações para nosso banco de dados, de resto tudo permanece igual como nos exemplos anteriores.
+Vamos aos detalhes novos, a const de user tem como caminho agora o (findByIdAndUpdate) e os dois parametros a serem passados são o id e o req.body e o new: true pois é no corpo da requisição que vamos enviar as alterações para nosso banco de dados, de resto tudo permanece igual como nos exemplos anteriores.
+
+* {new: true} é para quando for alterado alguma coisa atualizar essa mudança em tempo real e mostrar ela.
 
 @exemplo
 ```bash
 app.patch('/users/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const user = await UserModel.findByIdAndUpdate(id, req.body)
+        const user = await UserModel.findByIdAndUpdate(id, req.body,{new: true})
+        return res.status(200).json(user)
     } catch (error) {
         res.status(500).send(error.message)
     }
@@ -501,7 +504,7 @@ Passo a passo de como fazer cada etapa no POSTman para testes de requisição.
 
 * Depois de de criada uma nova requisição com nome de CRIAR USUARIO e colocar como tipo POST, vamos inserir na url ex: http://localhost:8080/users
 
-* NO corpo da requisição onde vamos passar os dados deve ser em formato JSON segue o exemplo.
+* No corpo da requisição onde vamos passar os dados deve ser em formato JSON segue o exemplo.
 
 * Por fim clicar no botão send para enviar para nosso banco de dados.
 
