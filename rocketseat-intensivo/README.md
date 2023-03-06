@@ -405,13 +405,17 @@ const UserModel = mongoose.model('user', userSchema);
 module.exports = UserModel;
 ```
 
-### na pasta express ###
+### GET E POST, PATCH, PUT como fazer ###
 
 Foi aproveitado o modelo já em uso na pasta express as modificações são as seguintes.
+
+### POST para criar usuarios ###
 
 * Agora em vez de ser um app.get é um app.post, usando um try e catch para tornar a função assincrona, lembre de mandar o status como 201, pelo visto isso é importante. E transformando em json o user.
 
 * Ultima parte do exemplo vai na parte superior do arquivo para mostrar ao express que esta lidando com formato json.
+
+* DETALHE na pasta express
 
 @exemplo
 ```bash
@@ -464,6 +468,14 @@ app.get('/users/:id', async (req, res) =>{
     }
 })
 ```
+# PATCH ou PUT , atualizar usuario #
+
+* O requerimento PATCH serve para quando queremos apenas atualizar um campo do dado.
+
+* Já o PUT, serve para quando queremos alterar quase ou por completo os dados.
+
+
+
 
 # baixando o POSTman para teste.. #
 
