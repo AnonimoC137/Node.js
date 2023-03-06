@@ -425,10 +425,56 @@ app.post('/users', async (req, res) => {
 
 app.use(express.json());
 ```
+### GET para buscas gerais ###
+
+* Agora um exemplo de GET para pegar todas as informações que tem atualmente no nosso banco de dados, isso porque no find não tem nenhum filtro, pois é possivel colocar justamente para decidir o que quer receber
+
+
+@exemplo
+```bash
+app.get('/users', async (req, res) =>{
+       try {
+            const users = await UserModel.find({});
+            res.status(200).json(users)
+
+       } catch (error) {
+            return res.status(500).send(error.message)
+       }
+})
+```
+### GET  para buscar com ID ###
+
+Aqui vemos que mudou um pouco o caminho passado da url, e tbm o UserModel. Criamos uma const para pegar o caminho do id e chamamos ela de id mesmo, (preste atenção no caminho usando na const para pegar o id... re.params.id) tbm criado uma const para buscar com findById o id e como retorno em json colocamos esse user para ser enviado como resposta.
+
+@exemplo
+```bash
+app.get('/users/:id', async (req, res) =>{
+    try {
+        const id = req.params.id;
+         const user = await UserModel.findById(id);
+         res.status(200).json(user)
+
+    } catch (error) {
+         return res.status(500).send(error.message)
+    }
+})
+```
 
 # baixando o POSTman para teste.. #
 
 O que é o POSTMAN? O Postman é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs. Isso é feito, permitindo aos usuários criar e salvar solicitações HTTP e HTTPs simples e complexas, bem como ler suas respostas.
+
+* Basicamente ele serve para simular uma requisição do tipo GET, que é quando voce quer receber alguma informação do banco de dados, ou uma tipo POST, quando voce quer enviar algum tipo de informação para o banco de dados.
+
+### como fazer o requerimento teste de GET ###
+
+* Apos criarmos no botao ... um novo requerimento e com o tipo GET, inserimos a http://localhost:8080/users para acessar o users e nossas configurações no express vao entrar em ação retornando o que foi pedido.
+
+* Para fazer uma requisição por id e necessario colocar o numero do id junto com a url a requisição ex: http://localhost:8080/users/64064c07878ecb2d3245aada
+
+
+
+
 
 
 
