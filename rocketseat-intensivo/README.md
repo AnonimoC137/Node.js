@@ -338,12 +338,17 @@ const connectToDatabase = async () => {
             }
 
             return console.log('conexão bem sucedida')
-    })
+    });
 }
 
 // para exportar
 module.exports = connectToDatabase
 ```
+# Acessando dados teste no MongoDB #
+
+Para acessar o local onde esta os dados de teste das requisições de GET e POST
+
+* Browser Colections
 
 # Pasta SRC/DATABASE/connect # 
 
