@@ -474,8 +474,19 @@ app.get('/users/:id', async (req, res) =>{
 
 * Já o PUT, serve para quando queremos alterar quase ou por completo os dados.
 
+Vamos aos detalhes novos, a const de user tem como caminho agora o (findByIdAndUpdate) e os dois parametros a serem passados são o id e o req.body pois é no corpo da requisição que vamos enviar as alterações para nosso banco de dados, de resto tudo permanece igual como nos exemplos anteriores.
 
-
+@exemplo
+```bash
+app.patch('/users/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const user = await UserModel.findByIdAndUpdate(id, req.body)
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+});
+```
 
 # baixando o POSTman para teste.. #
 
@@ -483,11 +494,66 @@ O que é o POSTMAN? O Postman é um API Client que facilita aos desenvolvedores 
 
 * Basicamente ele serve para simular uma requisição do tipo GET, que é quando voce quer receber alguma informação do banco de dados, ou uma tipo POST, quando voce quer enviar algum tipo de informação para o banco de dados.
 
-### como fazer o requerimento teste de GET ###
+# como fazer o requerimento teste #
+Passo a passo de como fazer cada etapa no POSTman para testes de requisição.
 
+### POST para criar usuario ###
+
+* Depois de de criada uma nova requisição com nome de CRIAR USUARIO e colocar como tipo POST, vamos inserir na url ex: http://localhost:8080/users
+
+* NO corpo da requisição onde vamos passar os dados deve ser em formato JSON segue o exemplo.
+
+* Por fim clicar no botão send para enviar para nosso banco de dados.
+
+@exemplo
+```bash
+{
+    "firstName": "xandy",
+    "lastName": "coimbra",
+    "email": "alexandrecoimbra44@gmail.com",
+    "password": "12345678"
+
+}
+```
+
+### GET para puxar todos os usuarios###
 * Apos criarmos no botao ... um novo requerimento e com o tipo GET, inserimos a http://localhost:8080/users para acessar o users e nossas configurações no express vao entrar em ação retornando o que foi pedido.
 
+
+### GET para puxar por ID###
 * Para fazer uma requisição por id e necessario colocar o numero do id junto com a url a requisição ex: http://localhost:8080/users/64064c07878ecb2d3245aada
+
+### PATCH para atualizar usuario ###
+
+* Apos criar uma nova requisição  colocamos na URL ex: http://localhost:8080/users/64064c07878ecb2d3245aada nessa URL contem o id do dado na qual vai ser alterado.
+
+* no corpo da requisição vai as alterações que desejamos fazer em formato JSON.
+
+* lembrete MUITO IMPORTANTE quando cria uma requisição do tipo POST ou PATCH, onde vamos usar o corpo da requisição para criar ou alterar algo no POSTman precisamos colocar na opção body e no tipo do arquivo JSON, alem da opção RAW.
+
+@exemplo
+```bash
+{
+    "email": "x.andi.3@hotmail.com"
+}
+```
+* O retorno vai ser o seguinte 
+
+@exemplo
+```bash
+{
+    "_id": "64064c07878ecb2d3245aada",
+    "firstName": "xandy",
+    "lastName": "coimbra",
+    "email": "x.andi.3@hotmail.com",
+    "password": "12345678",
+    "__v": 0
+}
+```
+
+
+
+
 
 
 
