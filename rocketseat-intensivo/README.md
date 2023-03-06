@@ -405,7 +405,7 @@ const UserModel = mongoose.model('user', userSchema);
 module.exports = UserModel;
 ```
 
-### GET E POST, PATCH, PUT como fazer ###
+# GET E POST, PATCH, PUT e DELETE como fazer #
 
 Foi aproveitado o modelo já em uso na pasta express as modificações são as seguintes.
 
@@ -468,7 +468,7 @@ app.get('/users/:id', async (req, res) =>{
     }
 })
 ```
-# PATCH ou PUT , atualizar usuario #
+### PATCH ou PUT , atualizar usuario ###
 
 * O requerimento PATCH serve para quando queremos apenas atualizar um campo do dado.
 
@@ -490,6 +490,11 @@ app.patch('/users/:id', async (req, res) => {
     }
 });
 ```
+### DELETE, deletar usuario (excluir) ###
+
+agora que vimos como criar, atualizar, puxar usuarios, vamos ver como deletar um.
+
+
 
 # baixando o POSTman para teste.. #
 
@@ -553,6 +558,14 @@ Passo a passo de como fazer cada etapa no POSTman para testes de requisição.
     "__v": 0
 }
 ```
+
+### DELETE para excluir usuario ###
+
+* Depois de criar uma nova requisição com o nome delete usuarios e por no tipo DELETE.
+
+* Vamos colocar na URL ex: http://localhost:8080/users/64064c07878ecb2d3245aada essa URL vai receber o id do usuario que esta no nosso banco de dados.
+
+* No body do arquivo vamos marcar a opção NONE, pois não sera preciso fazer nada no corpo da requisição.
 
 
 
